@@ -43,6 +43,7 @@ end
 
 function ENT:Use(ply)
 	local data = LBeer.Config.Drinks[self:GetIndex()]
+	if not data then self:Remove() return end
 	if LBeer.Config.Bottles.HPCap > ply:Health() then
 		ply:SetHealth(math.min(ply:Health()+data.HP, LBeer.Config.Bottles.HPCap))
 	end
